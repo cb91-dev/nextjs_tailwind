@@ -4,6 +4,7 @@ import AccountPage from "../components/AccountPage";
 
 const Index = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedInUser,setLoggedInUser] = useState ([])
   const user_data = [
     {
       email: "lacus.quisque@yahoo.ca",
@@ -111,7 +112,6 @@ const Index = () => {
 
   // login action/ this is where you would ask db for user
   const Login = (input) => {
-    console.log(input);
     const userInput = input.userInput;
     user_data.forEach((user) => {
       if (
@@ -119,6 +119,7 @@ const Index = () => {
         userInput.email == user.email &&
         user.password
       ) {
+        setLoggedInUser(user.name)
         setLoggedIn(true);
         return true;
       }
@@ -141,7 +142,7 @@ const Index = () => {
   return (
     <>
       {loggedIn ? (
-        <AccountPage fake_data={user_data} />
+        <AccountPage loggedInUser={loggedInUser} fake_data={user_data} />
       ) : (
         <LoginForm Login={Login} />
       )}

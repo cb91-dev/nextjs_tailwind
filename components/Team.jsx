@@ -12,14 +12,25 @@ const Team = (props) => {
   }
 
   const { fake_data } = props.data;
-  console.log(fake_data);
+
   return (
     <div>
+        <div
+     
+   
+          className="grid grid-cols-3 m-1 rounded p-2 bg-zinc-300 shadow-lg"
+        >
+          <div>Users Names </div>
+          <div>Country</div>
+          <div className="flex justify-center ">
+           <div>Action</div>
+          </div>
+        </div>
       {fake_data.map((item, index) => (
         <div
           key={index}
           onClick={opener}
-          className="grid grid-cols-3 m-1 rounded p-2 bg-zinc-200 shadow-lg"
+          className="grid grid-cols-3 m-1 rounded p-2 my-3 bg-zinc-100 shadow-lg"
         >
           <div>{item.name} </div>
           <div>{item.region} </div>

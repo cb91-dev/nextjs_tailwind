@@ -20,7 +20,7 @@ import Reports from "./Reports";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
+// main component handling all components
 const AccountPage = (fake_data) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profile, setProfile] = useState(true);
@@ -30,6 +30,7 @@ const AccountPage = (fake_data) => {
   const [documents, setDocuments] = useState(false);
   const [reports, setReports] = useState(false);
   // function to route which component is displayed
+
   const componentRouter = (link) => {
     if (link == "Profile") {
       setProfile(true);
@@ -289,7 +290,7 @@ const AccountPage = (fake_data) => {
             <div className="py-6">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-2xl font-semibold text-gray-900">
-                  Welcome back user
+                  Welcome back {fake_data.loggedInUser}
                 </h1>
               </div>
               <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
